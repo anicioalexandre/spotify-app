@@ -1,0 +1,17 @@
+{
+  "name": "ds-image-icon",
+  "version": "0.0.0",
+  "description": "Image icon web component.",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "ds-build": "tsc",
+    "ds-build-watch": "tsc --watch"
+  },
+  "devDependencies": {
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "lit-element": "^2.4.0"
+  },
+  "license": "MIT"
+}
