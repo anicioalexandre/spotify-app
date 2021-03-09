@@ -1,0 +1,32 @@
+:root {
+  --font-family: 'Roboto', sans-serif;
+
+  --s-font-size: 14px;
+  --m-font-size: 16px;
+  --l-font-size: 18px;
+  --xl-font-size: 24px;
+  --xxl-font-size: 48px;
+
+  --regular-font-weight: 400;
+  --bold-font-weight: 700;
+
+  --white: #ffffff;
+  --black: #000000;
+  --bg-color: #181818;
+
+  --gray-light: #fafafa;
+  --gray-medium: #999999;
+  --gray-dark: #626262;
+
+  --font-color-disabled: var(--gray-medium);
+
+  --hover-opacity: 50%;
+
+  --md-input-select-height: 40px;
+  --lg-input-select-height: 48px;
+  --xl-input-select-height: 56px;
+
+  --small-icon-size: 8px;
+  --default-icon-size: 16px;
+  --large-icon-size: 32px;
+}
