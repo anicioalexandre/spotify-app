@@ -15,6 +15,7 @@
     "start": "lerna bootstrap --hoist && lerna run ds-build && lerna run start --stream"
   },
   "devDependencies": {
+    "@open-wc/testing": "^2.5.32",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
     "@web/test-runner": "^0.12.15",
