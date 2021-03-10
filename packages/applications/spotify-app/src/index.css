@@ -8,3 +8,7 @@ body {
   height: 100vh;
   padding: 1px;
 }
+
+.routes-container {
+  margin: 40px 8vw;
+}
