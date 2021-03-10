@@ -1,10 +1,12 @@
 import axios from 'axios'
 import qs from 'qs'
 
+import { SPOTIFY_TOKEN_API } from './constants'
+
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID
 const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET
 
-export const getToken = async () => {
+const getTokenEndpoint = async () => {
   const headers = {
     headers: {
       Accept: 'application/json',
@@ -21,12 +23,14 @@ export const getToken = async () => {
 
   try {
     const response = await axios.post(
-      'https://accounts.spotify.com/api/token',
+      SPOTIFY_TOKEN_API,
       qs.stringify(data),
       headers
     )
-    return response.data.access_token
+    return Promise.resolve(response.data.access_token)
   } catch (error) {
-    console.error(error)
+    return Promise.reject(error)
   }
 }
+
+export default getTokenEndpoint
