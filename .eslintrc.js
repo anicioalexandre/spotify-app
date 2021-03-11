@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   parser: 'babel-eslint',
-  plugins: ['prettier', 'react'],
+  plugins: ['prettier', 'react', 'jest'],
   extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier'],
   overrides: [
     {
@@ -17,7 +17,8 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-    es6: true
+    es6: true,
+    'jest/globals': true
   },
   rules: {
     'prettier/prettier': ['error']
