@@ -3,23 +3,18 @@ import { useHistory, useParams } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import 'ds-input'
 
-const SearchInput = ({ label, placeholder }) => {
+const SearchInput = ({ label, placeholder, disabled }) => {
   const { query } = useParams()
   const history = useHistory()
   const input = useRef(null)
 
   const changePathOnKeyUp = (e) => {
-    if (e.key === 'Enter' && input.current.value) {
+    if (e.key === 'Enter' && input.current.value)
       history.push(`/search/${input.current.value}`)
-    }
   }
   useEffect(() => {
-    if (input.current) {
+    if (input.current)
       input.current.addEventListener('keyup', changePathOnKeyUp)
-    }
-    return () => {
-      input.current.removeEventListener('keyup', changePathOnKeyUp)
-    }
   }, [])
 
   useEffect(() => {
@@ -29,10 +24,18 @@ const SearchInput = ({ label, placeholder }) => {
     }
   }, [query])
 
-  return <ds-input ref={input} label={label} placeholder={placeholder} />
+  return (
+    <ds-input
+      disabled={disabled}
+      ref={input}
+      label={label}
+      placeholder={placeholder}
+    />
+  )
 }
 
 SearchInput.propTypes = {
+  disabled: PropTypes.bool,
   label: PropTypes.string,
   placeholder: PropTypes.string
 }
