@@ -4,7 +4,7 @@
   "description": "Spotify App that search for songs or albums and play some tracks",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev": "webpack --mode development",
     "start": "webpack serve --open",
     "build": "webpack --mode production"
@@ -24,7 +24,9 @@
     "webpack": "^5.24.3",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2",
-    "ds-input": "^0.0.0"
+    "ds-input": "^0.0.0",
+    "ds-fieldset": "^0.0.1",
+    "ds-image-label": "^0.0.0"
   },
   "dependencies": {
     "axios": "^0.21.1",

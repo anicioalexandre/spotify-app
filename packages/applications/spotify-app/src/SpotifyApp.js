@@ -5,11 +5,9 @@ import PropTypes from 'prop-types'
 import { getAuth } from './redux/modules/authToken'
 import Routes from './Routes'
 
-function SpotifyApp({ getAuthAction }) {
+function SpotifyApp() {
   return (
     <div className="app-container">
-      <h1>Spotify App</h1>
-      <button onClick={() => getAuthAction()}>Get Token</button>
       <div className="routes-container">
         <Routes />
       </div>
