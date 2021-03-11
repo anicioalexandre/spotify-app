@@ -1,0 +1,14 @@
+.search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.search-container a {
+  text-decoration: none;
+  transition: opacity 0.35s ease;
+}
+
+.search-container a:hover {
+  opacity: var(--hover-opacity);
+}

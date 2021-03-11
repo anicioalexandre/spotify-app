@@ -1,0 +1,39 @@
+.card {
+  min-width: 200px;
+  background: transparent;
+  min-height: 275px;
+}
+
+.card h2, p {
+  margin-bottom: 8px;
+  height: 20px;
+}
+
+.card p {
+  margin: auto;
+  width: 70%;
+}
+
+.image,
+.card h2,
+.card p {
+  background: linear-gradient(105deg, #ececec 10%, #f5f5f5da 18%, #ececec 33%);
+  background-size: 200% 100%;
+  animation: 1.3s loading linear infinite;
+}
+
+.image {
+  height: 200px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.content {
+  padding: 0px 15px;
+}
+
+@keyframes loading {
+  to {
+    background-position-x: -200%;
+  }
+}

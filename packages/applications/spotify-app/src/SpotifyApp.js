@@ -1,14 +1,27 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
-import { getToken } from './services/getToken'
+import { getAuth } from './redux/modules/authToken'
+import Routes from './Routes'
 
 function SpotifyApp() {
   return (
     <div className="app-container">
-      <h1>Spotify App</h1>
-      <button onClick={() => getToken()}>Get Token</button>
+      <div className="routes-container">
+        <Routes />
+      </div>
     </div>
   )
 }
 
-export default SpotifyApp
+const mapDispatchToProps = {
+  getAuthAction: getAuth
+}
+
+SpotifyApp.propTypes = {
+  getAuthAction: PropTypes.func,
+  token: PropTypes.string
+}
+
+export default connect(null, mapDispatchToProps)(SpotifyApp)

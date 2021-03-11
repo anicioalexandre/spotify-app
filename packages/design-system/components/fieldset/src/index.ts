@@ -16,10 +16,12 @@ export default class Fieldset extends LitElement {
   static styles = styles
   render(): TemplateResult {
     return html`
-      <fieldset class="fieldset">
+      <div class="fieldset">
         <legend class="label">${this.label}</legend>
-        <slot />
-      </fieldset>
+        <div class="slot-container">
+          <slot />
+        </div>
+      </div>
     `
   }
 }

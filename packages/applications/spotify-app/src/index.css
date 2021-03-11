@@ -1,10 +1,13 @@
 body {
+  background: var(--bg-color);
   margin: 0;
   padding: 0;
 }
 
 .app-container {
-  background: var(--bg-color);
-  height: 100vh;
   padding: 1px;
+}
+
+.routes-container {
+  margin: 40px 8vw;
 }
