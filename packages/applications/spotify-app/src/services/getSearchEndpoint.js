@@ -3,7 +3,6 @@ import axios from 'axios'
 import { SPOTIFY_SEARCH_API, SPOTIFY_SEARCH_TYPE } from './constants'
 
 const getSearchEndpoint = async (token, searchQuery) => {
-  console.log(token, 'token')
   try {
     const response = await axios.get(SPOTIFY_SEARCH_API, {
       headers: { Authorization: `Bearer ${token}` },

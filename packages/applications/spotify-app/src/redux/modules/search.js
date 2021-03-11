@@ -38,18 +38,19 @@ export const getSearch = (token, searchQuery) => {
 
 const formatAlbumData = ({ items }) =>
   items.map(({ artists, id, name, images }) => ({
-    artistName: artists[0].name,
     albumId: id,
+    albumImage: images[1].url,
     albumName: name,
-    albumImage: images[1].url
+    artistName: artists[0].name
   }))
 
 const formatTrackData = ({ items }) =>
   items.map(({ album, artists, id, name }) => ({
+    albumId: album.id,
+    albumImage: album.images[1].url,
     artistName: artists[0].name,
     trackId: id,
-    trackName: name,
-    albumImage: album.images[1].url
+    trackName: name
   }))
 
 const INITIAL_STATE = {
