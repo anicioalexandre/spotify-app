@@ -16,7 +16,9 @@ Object {
         <div
           class="image-list-container"
         >
-          <div>
+          <div
+            class="image-container"
+          >
             <ds-image-label
               imageheight="300"
               imagesrc="https://i.scdn.co/image/ab67616d00001e0229fa460a2fa1f7c16b7c97ae"
@@ -28,8 +30,23 @@ Object {
           <div
             class="list-container"
           >
-            <ds-ordered-list />
+            <ds-ordered-list
+              itemselected=""
+            />
           </div>
+        </div>
+        <div>
+          <audio
+            class="track-player"
+            controls=""
+            name="media"
+          >
+            <source
+              src=""
+              type="audio/mpeg"
+            />
+          </audio>
+          
         </div>
       </div>
     </div>
@@ -46,7 +63,9 @@ Object {
       <div
         class="image-list-container"
       >
-        <div>
+        <div
+          class="image-container"
+        >
           <ds-image-label
             imageheight="300"
             imagesrc="https://i.scdn.co/image/ab67616d00001e0229fa460a2fa1f7c16b7c97ae"
@@ -58,8 +77,23 @@ Object {
         <div
           class="list-container"
         >
-          <ds-ordered-list />
+          <ds-ordered-list
+            itemselected=""
+          />
         </div>
+      </div>
+      <div>
+        <audio
+          class="track-player"
+          controls=""
+          name="media"
+        >
+          <source
+            src=""
+            type="audio/mpeg"
+          />
+        </audio>
+        
       </div>
     </div>
   </div>,

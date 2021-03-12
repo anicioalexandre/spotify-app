@@ -6,7 +6,7 @@
 
 .list-container {
   margin-left: 40px;
-  max-height: 65vh;
+  max-height: 60vh;
   overflow-y: auto;
   width: 100%;
 }
@@ -22,7 +22,7 @@
 }
 
 .image-container {
-  min-height: 500px;
+  min-height: 450px;
 }
 
 @media screen and (max-width: 880px) {

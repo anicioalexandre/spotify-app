@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useHistory, useParams } from 'react-router'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
@@ -14,8 +14,6 @@ import 'ds-button'
 const Album = ({ token, getAlbumAction, getAuthAction, album }) => {
   const { id } = useParams()
   const history = useHistory()
-
-  const [trackClicked, setTrackClicked] = useState('')
 
   useEffect(() => {
     if (!token) getAuthAction()
@@ -42,13 +40,10 @@ const Album = ({ token, getAlbumAction, getAuthAction, album }) => {
           )}
         </div>
         <div className="list-container">
-          <TracksList
-            getTrackClicked={setTrackClicked}
-            dataList={album.tracks}
-          />
+          <TracksList dataList={album.tracks} />
         </div>
       </div>
-      {album.tracks.length && <TrackPlayer trackClicked={trackClicked} />}
+      {!!album.tracks.length && <TrackPlayer />}
     </div>
   )
 }
