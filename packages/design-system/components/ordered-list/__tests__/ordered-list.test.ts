@@ -9,9 +9,9 @@ import OrderedList from '../src/index'
 import '../src/index.js'
 
 const DATA_MOCK = [
-  { name: 'Nome da faixa 1', duration: 123, id: 1 },
-  { name: 'Nome da faixa 2', duration: 456, id: 2 },
-  { name: 'Nome da faixa 3', duration: 789, id: 3 }
+  { trackName: 'Nome da faixa 1', trackDuration: 123, trackId: '1' },
+  { trackName: 'Nome da faixa 2', trackDuration: 456, trackId: '2' },
+  { trackName: 'Nome da faixa 3', trackDuration: 789, trackId: '3' }
 ]
 
 describe('<ds-ordered-list/>', () => {

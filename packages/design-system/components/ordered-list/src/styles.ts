@@ -1,6 +1,10 @@
 import { css } from 'lit-element'
 
 export default css`
+  .list {
+    margin: 0;
+  }
+
   .list-button {
     background: none;
     border: none;
