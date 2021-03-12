@@ -9,11 +9,11 @@ Esse aplicativo foi construido em uma arquitetura modular permitindo maior flexi
 Se o usuário desejar ver mais informações sobre determinada moeda é possível buscá-la pelo seu nome ou clicar na respectiva linha na tabela de ranking. O bitcoinExplorer também dispõe de um gráfico personalizável para cada ativo, que permite ao usuário visualizar informações sobre a performance do ativo em diferentes circunstâncias e intervalos de tempo.
 
 ### `Instalação`
-Após o clone do repositório, deve-se instalar as dependências locais e remotas do projeto:
+Após o clone do repositório, deve-se instalar as dependências locais e remotas do projeto, deve-se executar o comando a baixo na PASTA RAIZ do projeto:
 ```bash
 npm install
 ```
-E iniciar o aplicativo React em modo de desenvolvimento ([http://localhost:8080](http://localhost:8080)):
+E iniciar o aplicativo React em modo de desenvolvimento, tamém na pasta raiz ([http://localhost:8080](http://localhost:8080)):
 ```bash
 npm start
 ```
