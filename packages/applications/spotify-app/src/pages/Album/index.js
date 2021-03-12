@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
@@ -6,24 +6,29 @@ import PropTypes from 'prop-types'
 import { getAlbum } from '../../redux/modules/album'
 import TracksList from '../../components/TracksList'
 import { getAuth } from '../../redux/modules/authToken'
-import 'ds-button'
-import './style.css'
 import LoadingState from '../../components/LoadingState'
+import TrackPlayer from '../../components/TrackPlayer'
+import './style.css'
+import 'ds-button'
 
 const Album = ({ token, getAlbumAction, getAuthAction, album }) => {
   const { id } = useParams()
   const history = useHistory()
+
+  const [trackClicked, setTrackClicked] = useState('')
+
   useEffect(() => {
     if (!token) getAuthAction()
     if (token && album.id !== id) getAlbumAction(token, id)
   }, [id, token])
+
   return (
     <div className="album-container">
       <ds-button onClick={() => history.goBack()} isReturnButton>
         Voltar
       </ds-button>
       <div className="image-list-container">
-        <div>
+        <div className="image-container">
           {album.loading ? (
             <LoadingState width={300} height={300} />
           ) : (
@@ -37,9 +42,13 @@ const Album = ({ token, getAlbumAction, getAuthAction, album }) => {
           )}
         </div>
         <div className="list-container">
-          <TracksList dataList={album.tracks} />
+          <TracksList
+            getTrackClicked={setTrackClicked}
+            dataList={album.tracks}
+          />
         </div>
       </div>
+      {album.tracks.length && <TrackPlayer trackClicked={trackClicked} />}
     </div>
   )
 }
