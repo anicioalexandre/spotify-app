@@ -45,4 +45,8 @@ export default css`
   .list-button[disabled] .first-label {
     color: var(--gray-medium);
   }
+
+  .selected {
+    color: var(--spotify-color) !important;
+  }
 `
