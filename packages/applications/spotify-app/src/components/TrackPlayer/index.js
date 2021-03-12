@@ -6,30 +6,37 @@ import './style.css'
 import { getTrack } from '../../redux/modules/track'
 
 const TrackPlayer = ({
-  trackClicked,
   trackPreview,
   getTrackAction,
   token,
-  trackLoading
+  trackLoading,
+  lastTrackPlayed
 }) => {
   const audioTag = document.querySelector('audio')
+
   useEffect(() => {
-    if (token && trackClicked) getTrackAction(token, trackClicked)
-    if (trackClicked && trackPreview) {
+    if (token && lastTrackPlayed) {
+      getTrackAction(token, lastTrackPlayed)
+    }
+  }, [lastTrackPlayed, token])
+
+  useEffect(() => {
+    if (audioTag && lastTrackPlayed && trackPreview) {
       audioTag.load()
+      audioTag.volume = 0.05
       audioTag.play()
     }
     if (!trackPreview && audioTag) audioTag.pause()
-  }, [trackClicked, token, trackPreview])
+  }, [lastTrackPlayed, token, trackPreview, audioTag])
 
   return (
     <div>
       <audio className="track-player" controls name="media">
         <source src={trackPreview} type="audio/mpeg" />
       </audio>
-      {!trackPreview && trackClicked && !trackLoading && (
+      {!trackPreview && lastTrackPlayed && !trackLoading && (
         <legend>
-          * A prévia da música pode não estar disponível no momento.
+          * A prévia desta música pode não estar disponível no momento.
         </legend>
       )}
     </div>
@@ -40,7 +47,8 @@ const mapStateToProps = ({ auth, track }) => {
   return {
     token: auth.token,
     trackPreview: track.preview,
-    trackLoading: track.loading
+    trackLoading: track.loading,
+    lastTrackPlayed: track.id
   }
 }
 
@@ -51,7 +59,7 @@ const mapDispatchToProps = {
 TrackPlayer.propTypes = {
   token: PropTypes.string,
   trackLoading: PropTypes.bool,
-  trackClicked: PropTypes.string,
+  lastTrackPlayed: PropTypes.string,
   trackPreview: PropTypes.string,
   getTrackAction: PropTypes.func
 }

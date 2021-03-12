@@ -3,10 +3,10 @@ import getTrackEndpoint from '../../services/getTrackEndpoint'
 const REQUEST_TRACK_API = 'REQUEST_TRACK_API'
 const REQUEST_TRACK_API_SUCCESS = 'REQUEST_TRACK_API_SUCCESS'
 const REQUEST_TRACK_API_FAILURE = 'REQUEST_TRACK_API_FAILURE'
+const SET_CLICKED_TRACK = 'SET_CLICKED_TRACK'
 
-const requestTrackApi = ({ id }) => ({
-  type: REQUEST_TRACK_API,
-  trackId: id
+const requestTrackApi = () => ({
+  type: REQUEST_TRACK_API
 })
 
 const requestTrackApiSuccess = (preview) => ({
@@ -19,9 +19,14 @@ const requestTrackApiFailure = (error) => ({
   error
 })
 
+export const setClickedTrack = (id) => ({
+  type: SET_CLICKED_TRACK,
+  trackId: id
+})
+
 export const getTrack = (token, id) => {
   return (dispatch) => {
-    dispatch(requestTrackApi({ id }))
+    dispatch(requestTrackApi())
     return getTrackEndpoint(token, id).then(
       ({ preview_url }) => dispatch(requestTrackApiSuccess(preview_url)),
       ({ message }) => dispatch(requestTrackApiFailure(message))
@@ -41,8 +46,7 @@ const reducer = (state = INITIAL_STATE, action) => {
     case REQUEST_TRACK_API:
       return {
         ...state,
-        loading: true,
-        id: action.trackId
+        loading: true
       }
     case REQUEST_TRACK_API_SUCCESS:
       return {
@@ -55,6 +59,11 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         loading: false,
         error: action.error
+      }
+    case SET_CLICKED_TRACK:
+      return {
+        ...state,
+        id: action.trackId
       }
 
     default:

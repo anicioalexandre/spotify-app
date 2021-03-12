@@ -48,4 +48,14 @@ export default css`
   .input:focus {
     color: var(--white);
   }
+
+  .input:not(:disabled):hover::placeholder {
+    color: var(--gray-light);
+  }
+
+  @media screen and (max-width: 600px) {
+    .input::placeholder {
+      font-size: var(--xl-font-size);
+    }
+  }
 `

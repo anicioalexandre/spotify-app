@@ -1,6 +1,6 @@
 {
   "name": "ds-input",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Input web component.",
   "main": "dist/src/index.js",
   "scripts": {

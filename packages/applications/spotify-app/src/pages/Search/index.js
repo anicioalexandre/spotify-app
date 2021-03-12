@@ -2,24 +2,29 @@ import React, { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import 'ds-image-label'
+import 'ds-fieldset'
 
+import './style.css'
+import { LABELS } from './constants'
 import SearchInput from '../../components/SearchInput/'
 import { getSearch } from '../../redux/modules/search'
 import { getAuth } from '../../redux/modules/authToken'
-import './style.css'
-import 'ds-fieldset'
-import 'ds-image-label'
 import LoadingState from '../../components/LoadingState'
-import { LABELS } from './constants'
+import { setClickedTrack } from '../../redux/modules/track'
+import { setSearchedResults } from '../../utils/localStorage'
+import EmptyState from '../../components/EmptyState'
 
 const Search = ({
   token,
+  setClickedTrackAction,
   getSearchAction,
   getAuthAction,
   albums,
   tracks,
   lastQuery,
-  searchLoading
+  searchLoading,
+  tokenLoading
 }) => {
   const { query } = useParams()
   const decodedQuery = decodeURI(query)
@@ -29,21 +34,38 @@ const Search = ({
     if (token && lastQuery !== query) getSearchAction(token, query)
   }, [query, token])
 
-  const renderLoadingState = () =>
-    [...Array(6)].map((_, i) => <LoadingState key={i} />)
+  const isSomethingLoading = tokenLoading || searchLoading
+  const isAlbumsEmpty = !albums.length
+  const isTracksEmpty = !tracks.length
+
+  const renderState = () => {
+    if (isSomethingLoading)
+      return [...Array(6)].map((_, i) => <LoadingState key={i} />)
+    if (isAlbumsEmpty || isTracksEmpty) {
+      return <EmptyState />
+    }
+  }
 
   return (
     <div className="search-container">
-      <SearchInput
-        disabled={searchLoading}
-        label={LABELS.search}
-        placeholder={LABELS.placeholder}
-      />
+      <SearchInput disabled={searchLoading} />
       <ds-fieldset label={LABELS.albuns + `"${decodedQuery}"`}>
-        {searchLoading
-          ? renderLoadingState()
+        {isSomethingLoading || isAlbumsEmpty
+          ? renderState()
           : albums.map(({ albumId, albumImage, albumName, artistName }) => (
-              <Link key={albumId} to={`/album/${albumId}`}>
+              <Link
+                onClick={() => {
+                  setClickedTrackAction('')
+                  setSearchedResults({
+                    albumId,
+                    image: albumImage,
+                    name: albumName,
+                    artistName
+                  })
+                }}
+                key={albumId}
+                to={`/album/${albumId}`}
+              >
                 <ds-image-label
                   data-testid="album-card"
                   imageSrc={albumImage}
@@ -54,11 +76,24 @@ const Search = ({
             ))}
       </ds-fieldset>
       <ds-fieldset label={LABELS.tracks + `"${decodedQuery}"`}>
-        {searchLoading
-          ? renderLoadingState()
+        {isSomethingLoading || isTracksEmpty
+          ? renderState()
           : tracks.map(
               ({ albumId, albumImage, artistName, trackId, trackName }) => (
-                <Link key={trackId} to={`/album/${albumId}`}>
+                <Link
+                  onClick={() => {
+                    setClickedTrackAction(trackId)
+                    setSearchedResults({
+                      trackId,
+                      albumId,
+                      image: albumImage,
+                      artistName,
+                      name: trackName
+                    })
+                  }}
+                  key={trackId}
+                  to={`/album/${albumId}`}
+                >
                   <ds-image-label
                     data-testid="track-card"
                     imageSrc={albumImage}
@@ -76,6 +111,7 @@ const Search = ({
 const mapStateToProps = ({ auth, search }) => {
   return {
     token: auth.token,
+    tokenLoading: auth.loading,
     albums: search.albums,
     tracks: search.tracks,
     lastQuery: search.query,
@@ -85,15 +121,18 @@ const mapStateToProps = ({ auth, search }) => {
 
 const mapDispatchToProps = {
   getAuthAction: getAuth,
-  getSearchAction: getSearch
+  getSearchAction: getSearch,
+  setClickedTrackAction: setClickedTrack
 }
 
 Search.propTypes = {
   token: PropTypes.string,
   lastQuery: PropTypes.string,
   searchLoading: PropTypes.bool,
+  tokenLoading: PropTypes.bool,
   getAuthAction: PropTypes.func,
   getSearchAction: PropTypes.func,
+  setClickedTrackAction: PropTypes.func,
   albums: PropTypes.arrayOf(
     PropTypes.shape({
       albumId: PropTypes.string.isRequired,

@@ -24,11 +24,12 @@
     "webpack": "^5.24.3",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2",
-    "ds-input": "^0.0.0",
+    "ds-input": "^0.0.1",
     "ds-fieldset": "^0.0.1",
     "ds-image-label": "^0.0.1",
     "ds-ordered-list": "^0.0.1",
-    "ds-button": "^0.0.1"
+    "ds-button": "^0.0.1",
+    "ds-image-icon": "^0.0.0"
   },
   "dependencies": {
     "axios": "^0.21.1",

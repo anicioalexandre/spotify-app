@@ -8,6 +8,10 @@ body {
   padding: 1px;
 }
 
+.app-container header {
+  padding: 25px 0 0 25px;
+}
+
 .routes-container {
   margin: 40px 8vw;
 }

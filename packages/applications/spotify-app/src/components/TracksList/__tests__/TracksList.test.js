@@ -1,5 +1,6 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import renderWithRedux from '../../../helpers/renderWithRedux'
+import renderWithRouter from '../../../helpers/renderWithRouter'
 import TracksList from '..'
 
 const DATA_MOCK = [
@@ -10,12 +11,14 @@ const DATA_MOCK = [
 
 describe('Tests for TracksList component', () => {
   it('renders TracksList component', async () => {
-    const component = render(<TracksList />)
+    const component = renderWithRedux(renderWithRouter(<TracksList />))
 
     expect(component).toMatchSnapshot()
   })
   it('should pass an array to the ds-ordered-list component', async () => {
-    const { container } = render(<TracksList dataList={DATA_MOCK} />)
+    const { container } = renderWithRedux(
+      renderWithRouter(<TracksList dataList={DATA_MOCK} />)
+    )
     const orderedListData = container.querySelector('ds-ordered-list').dataList
 
     expect(orderedListData).toStrictEqual(DATA_MOCK)

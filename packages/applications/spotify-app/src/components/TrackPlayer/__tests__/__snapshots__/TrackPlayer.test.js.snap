@@ -1,19 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tests for TracksList component renders TracksList component 1`] = `
+exports[`Tests for TracksPlayer component renders TrackPlayer component 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <ds-ordered-list
-        itemselected=""
-      />
+      <div>
+        <audio
+          class="track-player"
+          controls=""
+          name="media"
+        >
+          <source
+            src=""
+            type="audio/mpeg"
+          />
+        </audio>
+        
+      </div>
     </div>
   </body>,
   "container": <div>
-    <ds-ordered-list
-      itemselected=""
-    />
+    <div>
+      <audio
+        class="track-player"
+        controls=""
+        name="media"
+      >
+        <source
+          src=""
+          type="audio/mpeg"
+        />
+      </audio>
+      
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

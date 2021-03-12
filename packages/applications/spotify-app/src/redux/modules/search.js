@@ -57,7 +57,7 @@ const INITIAL_STATE = {
   albums: [],
   tracks: [],
   error: false,
-  loading: false
+  loading: true
 }
 
 const reducer = (state = INITIAL_STATE, action) => {
