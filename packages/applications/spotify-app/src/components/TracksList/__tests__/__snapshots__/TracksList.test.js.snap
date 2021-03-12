@@ -5,11 +5,15 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <ds-ordered-list />
+      <ds-ordered-list
+        itemselected=""
+      />
     </div>
   </body>,
   "container": <div>
-    <ds-ordered-list />
+    <ds-ordered-list
+      itemselected=""
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -61,6 +65,13 @@ Object {
   "queryByText": [Function],
   "queryByTitle": [Function],
   "rerender": [Function],
+  "store": Object {
+    "dispatch": [Function],
+    "getState": [Function],
+    "replaceReducer": [Function],
+    "subscribe": [Function],
+    Symbol(observable): [Function],
+  },
   "unmount": [Function],
 }
 `;

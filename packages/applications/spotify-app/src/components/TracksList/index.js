@@ -2,14 +2,15 @@ import React, { useEffect, useRef } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import 'ds-ordered-list'
+import { setClickedTrack } from '../../redux/modules/track'
 
-const TracksList = ({ dataList, getTrackClicked, lastTrackPlayed }) => {
+const TracksList = ({ dataList, lastTrackPlayed, setClickedTrackAction }) => {
   const list = useRef(null)
 
   useEffect(() => {
-    if (list.current) {
+    if (list.current && dataList?.length) {
       list.current.addEventListener('listitemclick', (e) => {
-        getTrackClicked(e.detail.id)
+        setClickedTrackAction(e.detail.id)
       })
       list.current.dataList = dataList
     }
@@ -22,7 +23,12 @@ const mapStateToProps = ({ track }) => ({
   lastTrackPlayed: track.id
 })
 
+const mapDispatchToProps = {
+  setClickedTrackAction: setClickedTrack
+}
+
 TracksList.propTypes = {
+  setClickedTrackAction: PropTypes.func,
   lastTrackPlayed: PropTypes.string,
   getTrackClicked: PropTypes.func,
   dataList: PropTypes.arrayOf(
@@ -34,4 +40,4 @@ TracksList.propTypes = {
   )
 }
 
-export default connect(mapStateToProps)(TracksList)
+export default connect(mapStateToProps, mapDispatchToProps)(TracksList)
