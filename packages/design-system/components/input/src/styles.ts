@@ -54,6 +54,9 @@ export default css`
   }
 
   @media screen and (max-width: 600px) {
+    .input {
+      font-size: var(--xl-font-size);
+    }
     .input::placeholder {
       font-size: var(--xl-font-size);
     }
