@@ -3,8 +3,11 @@ import qs from 'qs'
 
 import { SPOTIFY_TOKEN_API } from './constants'
 
-const CLIENT_ID = process.env.REACT_APP_CLIENT_ID
-const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET
+// const CLIENT_ID = process.env.REACT_APP_CLIENT_ID
+// const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET
+
+const CLIENT_ID = '39fc15ee52834938961be68d758d323f'
+const CLIENT_SECRET = 'a8ec2a63555f437e9832b5f4e7110763'
 
 const getTokenEndpoint = async () => {
   const headers = {
