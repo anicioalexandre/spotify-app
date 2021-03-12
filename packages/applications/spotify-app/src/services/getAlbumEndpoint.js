@@ -2,7 +2,7 @@ import axios from 'axios'
 
 import { SPOTIFY_ALBUMS_API } from './constants'
 
-const getSearchEndpoint = async (token, id) => {
+const getAlbumEndpoint = async (token, id) => {
   try {
     const response = await axios.get(SPOTIFY_ALBUMS_API.concat(id), {
       headers: { Authorization: `Bearer ${token}` }
@@ -13,4 +13,4 @@ const getSearchEndpoint = async (token, id) => {
   }
 }
 
-export default getSearchEndpoint
+export default getAlbumEndpoint
