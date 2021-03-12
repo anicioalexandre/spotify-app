@@ -2,12 +2,15 @@ import { css } from 'lit-element'
 
 export default css`
   .button {
+    align-items: center;
     background: none;
     border: none;
     color: var(--white);
     cursor: pointer;
+    display: flex;
     font-family: var(--font-family);
-    font-size: var(--s-font-size);
+    font-size: var(--l-font-size);
+    gap: 5px;
     outline: 0;
     transition: all 0.25s ease;
   }
@@ -31,6 +34,7 @@ export default css`
     border-style: solid;
     border-width: 0 2px 2px 0;
     display: inline-block;
+    margin-bottom: 1px;
     padding: 3px;
     transform: rotate(135deg);
   }

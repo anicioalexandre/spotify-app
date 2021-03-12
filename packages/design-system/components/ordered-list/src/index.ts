@@ -31,19 +31,19 @@ export default class OrderedList extends LitElement {
   static styles = styles
   render(): TemplateResult {
     return html`
-      <ol class="list-container">
+      <ol class="list">
         ${this.dataList.map(
-          ({ name, duration, id }) =>
+          ({ trackDuration, trackId, trackName }) =>
             html`<li class="list-item">
               <button
                 class="list-button"
                 role="button"
                 @click=${this._handleClick}
                 ?disabled=${this.disabled}
-                id=${id}
+                id=${trackId}
               >
-                <span class="label-item first-label">${name}</span>
-                <span class="label-item">${duration}</span>
+                <span class="label-item first-label">${trackName}</span>
+                <span class="label-item">${trackDuration}</span>
               </button>
             </li>`
         )}
@@ -62,4 +62,4 @@ type ButtonEvent = {
   target: { id: number }
 }
 
-type DataList = { name: string; duration: number; id: number }[]
+type DataList = { trackDuration: number; trackId: string; trackName: string }[]

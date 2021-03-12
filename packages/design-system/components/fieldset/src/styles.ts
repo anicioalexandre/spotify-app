@@ -25,7 +25,7 @@ export default css`
     font-family: var(--font-family);
     font-size: var(--l-font-size);
   }
-  ::-webkit-scrollbar {
+  .slot-container::-webkit-scrollbar {
     width: 5px;
     height: 10px;
   }
