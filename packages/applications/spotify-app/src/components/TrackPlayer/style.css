@@ -1,0 +1,15 @@
+legend {
+  color:var(--gray-medium);
+  font-family: var(--font-family);
+  font-size: var(--s-font-size);
+}
+
+.track-player {
+  outline: 0;
+}
+
+@media screen and (max-width: 880px) {
+  .track-player {
+    width: 100%;
+  }
+}
