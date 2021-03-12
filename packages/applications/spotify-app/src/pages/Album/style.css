@@ -21,6 +21,10 @@
   margin-right: 40px;
 }
 
+.image-container {
+  min-height: 500px;
+}
+
 @media screen and (max-width: 880px) {
   .image-list-container {
     display: flex;
@@ -30,6 +34,9 @@
   }
   .list-container {
     margin-left: 0;
+  }
+  .image-container {
+    min-height: unset;
   }
 }
 
