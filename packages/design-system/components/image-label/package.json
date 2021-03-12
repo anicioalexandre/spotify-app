@@ -1,6 +1,6 @@
 {
   "name": "ds-image-label",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Image plus labels web component.",
   "main": "dist/src/index.js",
   "scripts": {

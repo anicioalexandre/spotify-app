@@ -33,6 +33,7 @@ export default class ImageLabel extends LitElement {
       </style>
       <div class="image-label-container">
         <img
+          onerror="this.style.display='none'"
           src=${this.imageSrc}
           alt=${this.primaryLabel}
           width=${this.imageWidth}
