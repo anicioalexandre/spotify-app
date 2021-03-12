@@ -39,7 +39,7 @@ const Search = ({
         label={LABELS.search}
         placeholder={LABELS.placeholder}
       />
-      <ds-fieldset label={LABELS.albuns + decodedQuery}>
+      <ds-fieldset label={LABELS.albuns + `"${decodedQuery}"`}>
         {searchLoading
           ? renderLoadingState()
           : albums.map(({ albumId, albumImage, albumName, artistName }) => (
@@ -53,7 +53,7 @@ const Search = ({
               </Link>
             ))}
       </ds-fieldset>
-      <ds-fieldset label={LABELS.tracks + decodedQuery}>
+      <ds-fieldset label={LABELS.tracks + `"${decodedQuery}"`}>
         {searchLoading
           ? renderLoadingState()
           : tracks.map(
