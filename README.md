@@ -52,6 +52,7 @@ Para buildar em tempo real os componentes do design system (permite que você co
 npm run ds-build-watch
 ```
 Vale lembrar que mudanças apenas na aplicação, que não envolvem os componentes do design system já são refletidas automaticamente pela configuração do webpack desse projeto.
+
 Para rodar o eslint nos arquivos do projeto:
 ```bash
 npm run lint-app
