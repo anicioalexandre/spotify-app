@@ -9,7 +9,7 @@ Esse aplicativo foi construido em uma arquitetura modular permitindo maior flexi
 Se o usuário desejar ver mais informações sobre determinada moeda é possível buscá-la pelo seu nome ou clicar na respectiva linha na tabela de ranking. O bitcoinExplorer também dispõe de um gráfico personalizável para cada ativo, que permite ao usuário visualizar informações sobre a performance do ativo em diferentes circunstâncias e intervalos de tempo.
 
 ### `Instalação`
-Após o clone do repositório, deve-se instalar as dependências locais e remotas do projeto, deve-se executar o comando a baixo na PASTA RAIZ do projeto:
+Após o clone do repositório, deve-se instalar as dependências locais e remotas do projeto, deve-se executar o comando a baixo na PASTA RAIZ do projeto (é necessário ter o Node.js instalado):
 ```bash
 npm install
 ```
@@ -35,4 +35,24 @@ npm run ds-test
 Para rodar apenas os testes da aplicação:
 ```bash
 npm run app-test
+```
+
+### `Comandos úteis para o desenvolvimento`
+
+Para limpar as pastas /node_modules e /dist dos pacotes:
+```bash
+npm run clean
+```
+Para criar um link simbólico entre os pacotes do design system e as dependêcias da aplicação:
+```bash
+npm run bootstrap
+```
+Para buildar em tempo real os componentes do design system (permite que você consiga ver as mudanças que você faça em algum pacote do design system em tempo real):
+```bash
+npm run ds-build-watch
+```
+Vale lembrar que mudanças apenas na aplicação, que não envolvem os componentes do design system já são refletidas automaticamente pela configuração do webpack desse projeto.
+Para rodar o eslint nos arquivos do projeto:
+```bash
+npm run lint-app
 ```
