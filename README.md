@@ -6,8 +6,6 @@ Esse aplicativo foi construido em uma arquitetura modular permitindo maior flexi
   - `Design System` (criado com web components, totalmente agnóstico e reutilizável) que mantém a consistência entre varios recursos isolados. 
   - `Applications` que engloba aplicações baseadas em uma arquitetura de Micro Front-Ends que consomem diversos recursos em comum. No caso desse projeto, foi criada apenas uma aplicação em React que se conecta intimamente com os componentes do design system.
 
-Se o usuário desejar ver mais informações sobre determinada moeda é possível buscá-la pelo seu nome ou clicar na respectiva linha na tabela de ranking. O bitcoinExplorer também dispõe de um gráfico personalizável para cada ativo, que permite ao usuário visualizar informações sobre a performance do ativo em diferentes circunstâncias e intervalos de tempo.
-
 ### `Instalação`
 Após o clone do repositório, deve-se instalar as dependências locais e remotas do projeto, deve-se executar o comando a baixo na PASTA RAIZ do projeto (é necessário ter o Node.js instalado):
 ```bash
