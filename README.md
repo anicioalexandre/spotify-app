@@ -7,20 +7,20 @@ Esse aplicativo foi construido em uma arquitetura modular permitindo maior flexi
   - `Applications` que engloba aplicações baseadas em uma arquitetura de Micro Front-Ends que consomem diversos recursos em comum. No caso desse projeto, foi criada apenas uma aplicação em React que se conecta intimamente com os componentes do design system.
 
 ### `Instalação`
-Após o clone do repositório, deve-se instalar as dependências locais e remotas do projeto, deve-se executar o comando a baixo na PASTA RAIZ do projeto (é necessário ter o Node.js instalado):
+Após o clone do repositório, deve-se instalar as dependências locais e remotas do projeto, executando o comando abaixo na PASTA RAIZ do projeto (é necessário ter o Node.js instalado):
 ```bash
 npm install
 ```
-E iniciar o aplicativo React em modo de desenvolvimento, tamém na pasta raiz ([http://localhost:8080](http://localhost:8080)):
+E iniciar o aplicativo React em modo de desenvolvimento, também na pasta raiz ([http://localhost:8080](http://localhost:8080)):
 ```bash
 npm start
 ```
-Esse comando cria um link simbólico entra os pacotes do design system (ainda não publicados no NPM) e as dependencias da aplicação, permitindo que possamos utilizar esse componentes em forma de pacotes. Ele também faz o build dos componentes do Design System da aplicação, além de executar as configurações do webpack para servir a aplicação.
+Esse comando cria um link simbólico entra os pacotes do design system (ainda não publicados no NPM) e as dependências da aplicação, permitindo que possamos utilizar esse componentes em forma de pacotes. Ele também faz o build dos componentes do Design System da aplicação, além de executar as configurações do webpack para servir a aplicação.
 
 ### `Testes (Jest + React Testing Library + Open WC Testing)`
 Os testes da aplicação foram desenvolvidos em Jest e React Testing Library (RTL). A escolha por utilizar os dois em conjunto foi pautada principalmente pelo fato dos princípios de funcionamento do RTL serem semelhantes à maneira como o usuário encontra elementos na página. Desse modo consegue-se testar a aplicação de uma forma mais efetiva e coerente com as possíveis interações feitas pelo usuário.
 
-Já o Open WC Testes foi usado para testar os componentes do Design System. Ele é um framework de testes focado em Web components que permite de maneira mais fácil, acessar o shadowRooot desses componentes e testá-los de forma mais prática e efetiva.
+Já o Open WC Testes foi usado para testar os componentes do Design System. Ele é um framework de testes focado em Web components que permite, de maneira eficaz, acessar o shadowRooot desses componentes e testá-los de forma mais prática.
 
 Para executar todos os testes do repositório, deve-se executar:
 ```bash
@@ -49,9 +49,11 @@ Para buildar em tempo real os componentes do design system (permite que você co
 ```bash
 npm run ds-build-watch
 ```
-Vale lembrar que mudanças apenas na aplicação, que não envolvem os componentes do design system já são refletidas automaticamente pela configuração do webpack desse projeto.
+Vale lembrar que alterações na aplicação, que não envolvem os componentes do design system, já são refletidas automaticamente pela configuração do webpack desse projeto.
 
 Para rodar o eslint nos arquivos do projeto:
 ```bash
 npm run lint-app
 ```
+
+Happy hacking! :)
